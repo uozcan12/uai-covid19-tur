@@ -11,6 +11,8 @@ autopep8 = "*"
 flask = "*"
 pandas = "*"
 gunicorn = "*"
+sklearn = "*"
+numpy = "*"
 
 [requires]
 python_version = "3.7"
