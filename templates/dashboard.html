@@ -67,7 +67,7 @@
                     <li>
                         <a href="">
                             <i class="now-ui-icons users_single-02"></i>
-                            <p><b>Toplam Vefat Sayısı : {{tvs[-1]}}</b> </p>
+                            <p><b>Toplam Vefat Sayısı : {{tvs2[-1]}}</b> </p>
                         </a>
                     </li>
                     <li>
@@ -141,7 +141,7 @@
                                               <td>{{ gis[loop.index0] }}</td> 
                                               <td>{{ tis[loop.index0] }}</td> 
                                               <td>{{ gvs2[loop.index0] }}</td>
-                                              <td>{{ tvs[loop.index0] }}</td> 
+                                              <td>{{ tvs2[loop.index0] }}</td> 
                                               <td>{{ gts[loop.index0] }}</td> 
                                               <td>{{ tts[loop.index0] }}</td> 
                                           </tr>
@@ -750,7 +750,7 @@ myChart = new Chart(ctx, {
             pointRadius: 4,
             fill: true,
             borderWidth: 1,
-            data: [{% for item in tvs %}
+            data: [{% for item in tvs2 %}
              "{{item}}",
             {% endfor %}],
           }]
