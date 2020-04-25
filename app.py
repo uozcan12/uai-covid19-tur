@@ -29,7 +29,6 @@ def hello():
 
         for i in range(1,8):
             y_7.append(int(pol_reg.predict(poly_reg.fit_transform([[len(y)+i]]))[0]))
-
         return y_7
 
     df = pd.read_csv('./data/COVID.csv', index_col=False)
