@@ -13,6 +13,9 @@ pandas = "*"
 gunicorn = "*"
 sklearn = "*"
 numpy = "*"
+bs4 = "*"
+requests = "*"
+html5lib = "*"
 
 [requires]
 python_version = "3.7"
