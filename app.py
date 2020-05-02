@@ -22,7 +22,7 @@ def hello():
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
 
         # Fitting Polynomial Regression to the dataset
-        poly_reg = PolynomialFeatures(degree=4)
+        poly_reg = PolynomialFeatures(degree=3)
         X_poly = poly_reg.fit_transform(X)
         pol_reg = LinearRegression()
         pol_reg.fit(X_poly, y)
