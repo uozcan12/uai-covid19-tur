@@ -48,7 +48,7 @@ def hello():
     seven_days_period = []
     for i in range(1,8):
         startdate = dates[-1]
-        enddate = pd.to_datetime(startdate) + pd.DateOffset(days=i)
+        enddate = pd.to_datetime(startdate, dayfirst=True) + pd.DateOffset(days=i)
         enddate = enddate.strftime('%d.%m.%Y')
         seven_days_period.append(enddate)
 
@@ -63,8 +63,6 @@ def hello():
 
     gts_7 = get_seven_days_prediction(indexes,gts)
     tts_7 = get_seven_days_prediction(indexes,tts)
-
-    print(tvs_7)
 
     return render_template('dashboard.html', dates=dates, gvs=gvs, tvs=tvs, gis=gis, tis=tis, gvs2=gvs2, tvs2=tvs2, gts=gts, tts=tts, titles=titles,
         gvs_7=gvs_7, tvs_7=tvs_7, gis_7=gis_7, tis_7=tis_7, gvs2_7=gvs2_7, tvs2_7=tvs2_7, gts_7=gts_7, tts_7 = tts_7, seven_days_period=seven_days_period)
