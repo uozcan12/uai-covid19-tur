@@ -212,7 +212,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="card-category">Covid-19</h5>
-                                <h4 class="card-title"> 7 Günlük Tahmini Veriler</h4>
+                                <h4 class="card-title"> 7 Günlük Tahmini Veriler(Holt's Method)</h4>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -226,14 +226,87 @@
                                             {% for i in seven_days_period %}
                                           <tr>
                                               <td>{{ seven_days_period[loop.index0]}}</td>
-                                              <td>{{ gvs_7[loop.index0] }}</td>
-                                              <td>{{ tvs_7[loop.index0] }}</td>
-                                              <td>{{ gis_7[loop.index0] }}</td>
-                                              <td>{{ tis_7[loop.index0] }}</td>
-                                              <td>{{ gvs2_7[loop.index0] }}</td>
-                                              <td>{{ tvs2_7[loop.index0] }}</td>
-                                              <td>{{ gts_7[loop.index0] }}</td>
-                                              <td>{{ tts_7[loop.index0] }}</td>
+                                              <td>{{ gvs_holt_week[loop.index0] | int }}</td>
+                                              <td>{{ tvs_holt_week[loop.index0] | int}}</td>
+                                              <td>{{ gis_holt_week[loop.index0] | int}}</td>
+                                              <td>{{ tis_holt_week[loop.index0] | int}}</td>
+                                              <td>{{ gvs2_holt_week[loop.index0]| int }}</td>
+                                              <td>{{ tvs2_holt_week[loop.index0]| int }}</td>
+                                              <td>{{ gts_holt_week[loop.index0] | int }}</td>
+                                              <td>{{ tts_holt_week[loop.index0] | int}}</td>
+                                          </tr>
+                                          {%endfor%}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-category">Covid-19</h5>
+                                <h4 class="card-title"> Yarının Tahmini Verisi(Polynomial Regression)</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class=" text-primary">
+                                            {% for i in titles %}
+                                            <th> {{i}} </th>
+                                            {%endfor%}
+                                        </thead>
+                                        <tbody>
+                                            {% for i in range(1) %}
+                                          <tr>
+                                              <td>{{ seven_days_period[loop.index0]}}</td>
+                                              <td>{{ gvs_1[loop.index0] }}</td>
+                                              <td>{{ tvs_1[loop.index0] }}</td>
+                                              <td>{{ gis_1[loop.index0] }}</td>
+                                              <td>{{ tis_1[loop.index0] }}</td>
+                                              <td>{{ gvs2_1[loop.index0] }}</td>
+                                              <td>{{ tvs2_1[loop.index0] }}</td>
+                                              <td>{{ gts_1[loop.index0] }}</td>
+                                              <td>{{ tts_1[loop.index0] }}</td>
+                                          </tr>
+                                          {%endfor%}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-category">Covid-19</h5>
+                                <h4 class="card-title"> Yarının Tahmini Verisi(Simple Smoothing)</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class=" text-primary">
+                                            {% for i in titles %}
+                                            <th> {{i}} </th>
+                                            {%endfor%}
+                                        </thead>
+                                        <tbody>
+                                            {% for i in range(1) %}
+                                          <tr>
+                                              <td>{{ seven_days_period[loop.index0]}}</td>
+                                              <td>{{ gvs_simple_smoothing_tomorrow[loop.index0] | int }}</td>
+                                              <td>{{ tvs_simple_smoothing_tomorrow[loop.index0] | int}}</td>
+                                              <td>{{ gis_simple_smoothing_tomorrow[loop.index0] | int}}</td>
+                                              <td>{{ tis_simple_smoothing_tomorrow[loop.index0] | int}}</td>
+                                              <td>{{ gvs2_simple_smoothing_tomorrow[loop.index0]| int }}</td>
+                                              <td>{{ tvs2_simple_smoothing_tomorrow[loop.index0]| int }}</td>
+                                              <td>{{ gts_simple_smoothing_tomorrow[loop.index0] | int }}</td>
+                                              <td>{{ tts_simple_smoothing_tomorrow[loop.index0] | int}}</td>
                                           </tr>
                                           {%endfor%}
                                         </tbody>

@@ -6,14 +6,31 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
 import datetime
-app = Flask(__name__)
+from statsmodels.tsa.api import ExponentialSmoothing, SimpleExpSmoothing, Holt
 
+app = Flask(__name__)
 
 @app.route("/")
 def hello():
+    def convert_date(date_string):
+        date_string = date_string.split(".")
+        new_date = date_string[1]+"/"+date_string[0]+"/"+date_string[2]
+        return(new_date)
+
+    def get_simple_smoothing_value(first_list, date_list):
+        data_series = pd.Series(first_list, date_list)
+        fit = SimpleExpSmoothing(data_series).fit(smoothing_level=0.2,optimized=False)
+        fcast = fit.forecast(1)
+        return fcast
+
+    def get_holt_value(first_list, date_list):
+        data_series = pd.Series(first_list, date_list)
+        fit = Holt(data_series).fit(smoothing_level=0.8, smoothing_slope=0.2, optimized=False)
+        fcast = fit.forecast(7).rename(r'$\alpha=0.2$')
+        return fcast
 
     def get_seven_days_prediction(a, b):
-        y_7 = []
+        y_1 = []
         X = np.asarray(a)
         X = X.reshape(-1, 1)
         y = b
@@ -28,8 +45,8 @@ def hello():
         pol_reg.fit(X_poly, y)
 
         for i in range(1,8):
-            y_7.append(int(pol_reg.predict(poly_reg.fit_transform([[len(y)+i]]))[0]))
-        return y_7
+            y_1.append(int(pol_reg.predict(poly_reg.fit_transform([[len(y)+i]]))[0]))
+        return y_1
 
     df = pd.read_csv('./data/COVID.csv', index_col=False)
     titles = list(df.columns.values)
@@ -52,21 +69,53 @@ def hello():
         enddate = enddate.strftime('%d.%m.%Y')
         seven_days_period.append(enddate)
 
-    gvs_7 = get_seven_days_prediction(indexes,gvs)
-    tvs_7 = get_seven_days_prediction(indexes,tvs)
+    gvs_1 = get_seven_days_prediction(indexes,gvs)
+    tvs_1 = get_seven_days_prediction(indexes,tvs)
+    gis_1 = get_seven_days_prediction(indexes,gis)
+    tis_1 = get_seven_days_prediction(indexes,tis)
+    gvs2_1 = get_seven_days_prediction(indexes,gvs2)
+    tvs2_1 = get_seven_days_prediction(indexes,tvs2)
+    gts_1 = get_seven_days_prediction(indexes,gts)
+    tts_1 = get_seven_days_prediction(indexes,tts)
 
-    gis_7 = get_seven_days_prediction(indexes,gis)
-    tis_7 = get_seven_days_prediction(indexes,tis)
+    dates_range = pd.date_range(start = convert_date(dates[0]), end = convert_date(dates[-1]))
 
-    gvs2_7 = get_seven_days_prediction(indexes,gvs2)
-    tvs2_7 = get_seven_days_prediction(indexes,tvs2)
+    gvs_simple_smoothing_tomorrow = get_simple_smoothing_value(gvs,dates_range);
+    tvs_simple_smoothing_tomorrow = get_simple_smoothing_value(tvs,dates_range)
+    gis_simple_smoothing_tomorrow = get_simple_smoothing_value(gis,dates_range)
+    tis_simple_smoothing_tomorrow = get_simple_smoothing_value(tis,dates_range)
+    gvs2_simple_smoothing_tomorrow = get_simple_smoothing_value(gvs2,dates_range)
+    tvs2_simple_smoothing_tomorrow = get_simple_smoothing_value(tvs2,dates_range)
+    gts_simple_smoothing_tomorrow = get_simple_smoothing_value(gts,dates_range)
+    tts_simple_smoothing_tomorrow = get_simple_smoothing_value(tts,dates_range)
 
-    gts_7 = get_seven_days_prediction(indexes,gts)
-    tts_7 = get_seven_days_prediction(indexes,tts)
+    gvs_holt_week = get_holt_value(gvs,dates_range)
+    tvs_holt_week = get_holt_value(tvs,dates_range)
+    gis_holt_week = get_holt_value(gis,dates_range)
+    tis_holt_week = get_holt_value(tis,dates_range)
+    gvs2_holt_week = get_holt_value(gvs2,dates_range)
+    tvs2_holt_week = get_holt_value(tvs2,dates_range)
+    gts_holt_week = get_holt_value(gts,dates_range)
+    tts_holt_week = get_holt_value(tts,dates_range)
 
     return render_template('dashboard.html', dates=dates, gvs=gvs, tvs=tvs, gis=gis, tis=tis, gvs2=gvs2, tvs2=tvs2, gts=gts, tts=tts, titles=titles,
-        gvs_7=gvs_7, tvs_7=tvs_7, gis_7=gis_7, tis_7=tis_7, gvs2_7=gvs2_7, tvs2_7=tvs2_7, gts_7=gts_7, tts_7 = tts_7, seven_days_period=seven_days_period)
-
+        gvs_1=gvs_1, tvs_1=tvs_1, gis_1=gis_1, tis_1=tis_1, gvs2_1=gvs2_1, tvs2_1=tvs2_1, gts_1=gts_1, tts_1 = tts_1, seven_days_period=seven_days_period,
+        gvs_simple_smoothing_tomorrow = gvs_simple_smoothing_tomorrow,
+        tvs_simple_smoothing_tomorrow = tvs_simple_smoothing_tomorrow,
+        gis_simple_smoothing_tomorrow = gis_simple_smoothing_tomorrow,
+        tis_simple_smoothing_tomorrow = tis_simple_smoothing_tomorrow,
+        gvs2_simple_smoothing_tomorrow = gvs2_simple_smoothing_tomorrow,
+        tvs2_simple_smoothing_tomorrow = tvs2_simple_smoothing_tomorrow,
+        gts_simple_smoothing_tomorrow = gts_simple_smoothing_tomorrow,
+        tts_simple_smoothing_tomorrow = tts_simple_smoothing_tomorrow,
+        gvs_holt_week = gvs_holt_week,
+        tvs_holt_week = tvs_holt_week,
+        gis_holt_week = gis_holt_week,
+        tis_holt_week = tis_holt_week,
+        gvs2_holt_week = gvs2_holt_week,
+        tvs2_holt_week = tvs2_holt_week,
+        gts_holt_week = gts_holt_week,
+        tts_holt_week = tts_holt_week)
 
 if __name__ == "__main__":
     app.run(debug=True)
