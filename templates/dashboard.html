@@ -316,8 +316,44 @@
                         </div>
                     </div>
                 </div>
-
             </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-category">Covid-19</h5>
+                            <h4 class="card-title"> Tahmini Bitiş Tarihi </h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class=" text-primary">
+                                        {% for i in titles %}
+                                        <th> {{i}} </th>
+                                        {%endfor%}
+                                    </thead>
+                                    <tbody>
+                                        {% for i in range(1) %}
+                                      <tr>
+                                          <td>{{ end_pred_date }}</td>
+                                          <td>{{ gvs_holt_finish[-1] | int }}</td>
+                                          <td>{{ tvs_holt_finish[-1] | int}}</td>
+                                          <td>{{ gis_holt_finish[-1] | int}}</td>
+                                          <td>{{ tis_holt_finish[-1] | int}}</td>
+                                          <td>{{ gvs2_holt_finish[-1]| int }}</td>
+                                          <td>{{ tvs2_holt_finish[-1]| int }}</td>
+                                          <td>{{ gts_holt_finish[-1] | int }}</td>
+                                          <td>{{ tts_holt_finish[-1] | int}}</td>
+                                      </tr>
+                                      {%endfor%}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <footer class="footer">
                 <div class="container-fluid">
                     <nav>
