@@ -18,6 +18,7 @@ requests = "*"
 html5lib = "*"
 matplotlib = "*"
 statsmodels = "*"
+apscheduler = "*"
 
 [requires]
 python_version = "3.8"
