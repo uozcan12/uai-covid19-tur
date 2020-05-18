@@ -5,6 +5,7 @@ import urllib.request
 import re
 import datetime
 import pandas as pd
+from git import Repo
 
 url='https://covid19.saglik.gov.tr/'
 soup=bs(urllib.request.urlopen(url), "html5lib")
@@ -63,4 +64,20 @@ print("Bugünkü İyileşen Sayısı " + soup.findAll('span')[19].text)
 with open('data/COVID.csv','a') as fd:
     fd.write(tarih+","+gunluk_vaka_sayisi+","+toplam_vaka_sayisi+","+gunluk_iyilesen_sayisi+","+toplam_iyilesen_sayisi+","+gunluk_vefat_sayisi
     +","+toplam_vefat_sayisi+","+gunluk_test_sayisi+","+toplam_test_sayisi+","+str(indexes[-1]+1)+"\n")
-    fd.close()    
+    fd.close()
+
+#repo_dir = 'uai-covid19-tur'
+#repo = Repo(repo_dir)
+repo = Repo()
+file_list = [
+    'Pipfile',
+    'Pipfile.lock',
+    'requirements.txt',
+    'covid.py',
+    'data/COVID.csv'
+]
+commit_message = 'added git for python library & test git push'
+repo.index.add(file_list)
+repo.index.commit(commit_message)
+origin = repo.remote('origin')
+origin.push()
