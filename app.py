@@ -30,15 +30,11 @@ def hello():
         return fcast
 
     def get_holt_finish_getnumber(first_list, date_list):
-        data_series=pd.Series(first_list, date_list)
-        fit=Holt(data_series).fit(smoothing_level=0.8, smoothing_slope=0.2, optimized=False)
-        #fcast=fit.forecast(125).rename(r'$\alpha=0.2$')
-        fcast=[]
-        i=1
-        while True:
-            fcast=fit.forecast(i).rename(r'$\alpha=0.2$')
-            i+=1
-            if(fcast[-1]<=0):
+        data_series = pd.Series(first_list, date_list)
+        fit = Holt(data_series).fit(smoothing_level=0.8, smoothing_slope=0.2, optimized=False)
+        for i in range(1,1000):
+            if(fit.forecast(i)[-1]<=0):
+                fcast = i
                 break
         return fcast
 
@@ -118,13 +114,12 @@ def hello():
     tts_holt_week=get_holt_value(tts,dates_range)
 
     gvs_holt_finish=get_holt_finish_getnumber(gvs,dates_range)
-    print(len(gvs_holt_finish))
     start_pred_date=dates[-1]
-    end_pred_date=pd.to_datetime(start_pred_date, dayfirst=True) + pd.DateOffset(len(gvs_holt_finish))
+    end_pred_date=pd.to_datetime(start_pred_date, dayfirst=True) + pd.DateOffset(gvs_holt_finish-1)
     end_pred_date=end_pred_date.strftime('%d.%m.%Y')
-    print(end_pred_date)
 
-    day_after=len(gvs_holt_finish)
+    day_after=gvs_holt_finish-1
+    gvs_holt_finish=get_holt_finish(gvs,dates_range,day_after) 
     tvs_holt_finish=get_holt_finish(tvs,dates_range,day_after)
     gis_holt_finish=get_holt_finish(gis,dates_range,day_after)
     tis_holt_finish=get_holt_finish(tis,dates_range,day_after)
