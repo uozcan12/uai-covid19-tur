@@ -5,7 +5,8 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>COVID UAI TEAM</title>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+        name='viewport' />
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -105,7 +106,8 @@
                         </div>
                         <a class="navbar-brand" href="#pablo">Dashboard</a>
                     </div>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                        aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar navbar-kebab"></span>
                         <span class="navbar-toggler-bar navbar-kebab"></span>
                         <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -134,18 +136,18 @@
                                         </thead>
                                         <tbody>
                                             {% for i in dates %}
-                                          <tr>
-                                              <td data-type="date">{{ dates[loop.index0]}}</td>
-                                              <td>{{ gvs[loop.index0] }}</td>
-                                              <td>{{ tvs[loop.index0] }}</td>
-                                              <td>{{ gis[loop.index0] }}</td>
-                                              <td>{{ tis[loop.index0] }}</td>
-                                              <td>{{ gvs2[loop.index0] }}</td>
-                                              <td>{{ tvs2[loop.index0] }}</td>
-                                              <td>{{ gts[loop.index0] }}</td>
-                                              <td>{{ tts[loop.index0] }}</td>
-                                          </tr>
-                                          {%endfor%}
+                                            <tr>
+                                                <td>{{ dates[loop.index0]}}</td>
+                                                <td>{{ gvs[loop.index0] }}</td>
+                                                <td>{{ tvs[loop.index0] }}</td>
+                                                <td>{{ gis[loop.index0] }}</td>
+                                                <td>{{ tis[loop.index0] }}</td>
+                                                <td>{{ gvs2[loop.index0] }}</td>
+                                                <td>{{ tvs2[loop.index0] }}</td>
+                                                <td>{{ gts[loop.index0] }}</td>
+                                                <td>{{ tts[loop.index0] }}</td>
+                                            </tr>
+                                            {%endfor%}
                                         </tbody>
                                     </table>
                                 </div>
@@ -154,7 +156,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="card card-chart">
                             <div class="card-header">
                                 <h5 class="card-category">Covid-19</h5>
@@ -163,7 +165,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="chart-area">
-                                   <canvas id="lineChartExample"></canvas>
+                                    <canvas id="lineChartExample"></canvas>
                                 </div>
                             </div>
                             <div class="card-footer">
@@ -172,7 +174,45 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-6">
+                        <div class="card card-chart">
+                            <div class="card-header">
+                                <h5 class="card-category">Covid-19</h5>
+                                <h4 class="card-title">Toplam Vaka Sayısı</h4>
+
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <canvas id="toplamvakasayısı"></canvas>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="stats">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card card-chart">
+                            <div class="card-header">
+                                <h5 class="card-category">Covid-19</h5>
+                                <h4 class="card-title">Günlük İyileşen Sayısı</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="responsive">
+                                    <div class="chart-area">
+                                        <canvas id="gunlukiyilesensayisi"></canvas>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="stats"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
                         <div class="card card-chart">
                             <div class="card-header">
                                 <h5 class="card-category">Covid-19</h5>
@@ -189,7 +229,27 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card card-chart">
+                            <div class="card-header">
+                                <h5 class="card-category">Covid-19</h5>
+                                <h4 class="card-title">Günlük Vefat Sayısı</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="responsive">
+                                    <div class="chart-area">
+                                        <canvas id="gunlukvefatsayisi"></canvas>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="stats"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
                         <div class="card card-chart">
                             <div class="card-header">
                                 <h5 class="card-category">Covid-19</h5>
@@ -202,6 +262,44 @@
                             </div>
                             <div class="card-footer">
                                 <div class="stats">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card card-chart">
+                            <div class="card-header">
+                                <h5 class="card-category">Covid-19</h5>
+                                <h4 class="card-title">Günlük Test Sayısı</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="responsive">
+                                    <div class="chart-area">
+                                        <canvas id="gunluktestsayisi"></canvas>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="stats"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card card-chart">
+                            <div class="card-header">
+                                <h5 class="card-category">Covid-19</h5>
+                                <h4 class="card-title">Toplam Test Sayısı</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="responsive">
+                                    <div class="chart-area">
+                                        <canvas id="toplamtestsayisi"></canvas>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="stats"></div>
                                 </div>
                             </div>
                         </div>
@@ -224,18 +322,18 @@
                                         </thead>
                                         <tbody>
                                             {% for i in seven_days_period %}
-                                          <tr>
-                                              <td>{{ seven_days_period[loop.index0]}}</td>
-                                              <td>{{ gvs_holt_week[loop.index0] | int }}</td>
-                                              <td>{{ tvs_holt_week[loop.index0] | int}}</td>
-                                              <td>{{ gis_holt_week[loop.index0] | int}}</td>
-                                              <td>{{ tis_holt_week[loop.index0] | int}}</td>
-                                              <td>{{ gvs2_holt_week[loop.index0]| int }}</td>
-                                              <td>{{ tvs2_holt_week[loop.index0]| int }}</td>
-                                              <td>{{ gts_holt_week[loop.index0] | int }}</td>
-                                              <td>{{ tts_holt_week[loop.index0] | int}}</td>
-                                          </tr>
-                                          {%endfor%}
+                                            <tr>
+                                                <td>{{ seven_days_period[loop.index0]}}</td>
+                                                <td>{{ gvs_holt_week[loop.index0] | int }}</td>
+                                                <td>{{ tvs_holt_week[loop.index0] | int}}</td>
+                                                <td>{{ gis_holt_week[loop.index0] | int}}</td>
+                                                <td>{{ tis_holt_week[loop.index0] | int}}</td>
+                                                <td>{{ gvs2_holt_week[loop.index0]| int }}</td>
+                                                <td>{{ tvs2_holt_week[loop.index0]| int }}</td>
+                                                <td>{{ gts_holt_week[loop.index0] | int }}</td>
+                                                <td>{{ tts_holt_week[loop.index0] | int}}</td>
+                                            </tr>
+                                            {%endfor%}
                                         </tbody>
                                     </table>
                                 </div>
@@ -260,18 +358,18 @@
                                         </thead>
                                         <tbody>
                                             {% for i in range(1) %}
-                                          <tr>
-                                              <td>{{ seven_days_period[loop.index0]}}</td>
-                                              <td>{{ gvs_1[loop.index0] }}</td>
-                                              <td>{{ tvs_1[loop.index0] }}</td>
-                                              <td>{{ gis_1[loop.index0] }}</td>
-                                              <td>{{ tis_1[loop.index0] }}</td>
-                                              <td>{{ gvs2_1[loop.index0] }}</td>
-                                              <td>{{ tvs2_1[loop.index0] }}</td>
-                                              <td>{{ gts_1[loop.index0] }}</td>
-                                              <td>{{ tts_1[loop.index0] }}</td>
-                                          </tr>
-                                          {%endfor%}
+                                            <tr>
+                                                <td>{{ seven_days_period[loop.index0]}}</td>
+                                                <td>{{ gvs_1[loop.index0] }}</td>
+                                                <td>{{ tvs_1[loop.index0] }}</td>
+                                                <td>{{ gis_1[loop.index0] }}</td>
+                                                <td>{{ tis_1[loop.index0] }}</td>
+                                                <td>{{ gvs2_1[loop.index0] }}</td>
+                                                <td>{{ tvs2_1[loop.index0] }}</td>
+                                                <td>{{ gts_1[loop.index0] }}</td>
+                                                <td>{{ tts_1[loop.index0] }}</td>
+                                            </tr>
+                                            {%endfor%}
                                         </tbody>
                                     </table>
                                 </div>
@@ -296,18 +394,18 @@
                                         </thead>
                                         <tbody>
                                             {% for i in range(1) %}
-                                          <tr>
-                                              <td>{{ seven_days_period[loop.index0]}}</td>
-                                              <td>{{ gvs_simple_smoothing_tomorrow[loop.index0] | int }}</td>
-                                              <td>{{ tvs_simple_smoothing_tomorrow[loop.index0] | int}}</td>
-                                              <td>{{ gis_simple_smoothing_tomorrow[loop.index0] | int}}</td>
-                                              <td>{{ tis_simple_smoothing_tomorrow[loop.index0] | int}}</td>
-                                              <td>{{ gvs2_simple_smoothing_tomorrow[loop.index0]| int }}</td>
-                                              <td>{{ tvs2_simple_smoothing_tomorrow[loop.index0]| int }}</td>
-                                              <td>{{ gts_simple_smoothing_tomorrow[loop.index0] | int }}</td>
-                                              <td>{{ tts_simple_smoothing_tomorrow[loop.index0] | int}}</td>
-                                          </tr>
-                                          {%endfor%}
+                                            <tr>
+                                                <td>{{ seven_days_period[loop.index0]}}</td>
+                                                <td>{{ gvs_simple_smoothing_tomorrow[loop.index0] | int }}</td>
+                                                <td>{{ tvs_simple_smoothing_tomorrow[loop.index0] | int}}</td>
+                                                <td>{{ gis_simple_smoothing_tomorrow[loop.index0] | int}}</td>
+                                                <td>{{ tis_simple_smoothing_tomorrow[loop.index0] | int}}</td>
+                                                <td>{{ gvs2_simple_smoothing_tomorrow[loop.index0]| int }}</td>
+                                                <td>{{ tvs2_simple_smoothing_tomorrow[loop.index0]| int }}</td>
+                                                <td>{{ gts_simple_smoothing_tomorrow[loop.index0] | int }}</td>
+                                                <td>{{ tts_simple_smoothing_tomorrow[loop.index0] | int}}</td>
+                                            </tr>
+                                            {%endfor%}
                                         </tbody>
                                     </table>
                                 </div>
@@ -315,7 +413,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             <footer class="footer">
                 <div class="container-fluid">
@@ -339,14 +436,14 @@
                             <li>
                                 <a href="https://github.com/AslihanArslan">
                                     <i class="fab fa-github">
-                                      AslihanArslan
+                                        AslihanArslan
                                     </i>
                                 </a>
                             </li>
                             <li>
                                 <a href="https://github.com/uozcan12">
                                     <i class="fab fa-github">
-                                      uozcan12
+                                        uozcan12
                                     </i>
                                 </a>
                             </li>
@@ -362,6 +459,7 @@
                 </div>
             </footer>
         </div>
+    </div>
     </div>
 </body>
 <!--   Core JS Files   -->
@@ -384,7 +482,7 @@
 <script type="text/javascript" src="{{ url_for('static', filename='js/date-de.js') }}"></script>
 
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         // Javascript method's body can be found in static/js/demos.js
         demo.initDashboardPageCharts();
     });
@@ -398,351 +496,350 @@
          });
     });
 </script>
-
 <script>
-demo = {
-    initPickColor: function(){
-        $('.pick-class-label').click(function(){
-            var new_class = $(this).attr('new-class');
-            var old_class = $('#display-buttons').attr('data-class');
-            var display_div = $('#display-buttons');
-            if(display_div.length) {
-            var display_buttons = display_div.find('.btn');
-            display_buttons.removeClass(old_class);
-            display_buttons.addClass(new_class);
-            display_div.attr('data-class', new_class);
-            }
-        });
-    },
+    demo = {
+        initPickColor: function () {
+            $('.pick-class-label').click(function () {
+                var new_class = $(this).attr('new-class');
+                var old_class = $('#display-buttons').attr('data-class');
+                var display_div = $('#display-buttons');
+                if (display_div.length) {
+                    var display_buttons = display_div.find('.btn');
+                    display_buttons.removeClass(old_class);
+                    display_buttons.addClass(new_class);
+                    display_div.attr('data-class', new_class);
+                }
+            });
+        },
 
-    initDocChart: function(){
-      chartColor = "#FFFFFF";
+        initDocChart: function () {
+            chartColor = "#FFFFFF";
 
-      // General configuration for the charts with Line gradientStroke
-      gradientChartOptionsConfiguration = {
-          maintainAspectRatio: false,
-          legend: {
-              display: false
-          },
-          tooltips: {
-            bodySpacing: 4,
-            mode:"nearest",
-            intersect: 0,
-            position:"nearest",
-            xPadding:10,
-            yPadding:10,
-            caretPadding:10
-          },
-          responsive: true,
-          scales: {
-              yAxes: [{
-                display:0,
-                gridLines:0,
-                ticks: {
+            // General configuration for the charts with Line gradientStroke
+            gradientChartOptionsConfiguration = {
+                maintainAspectRatio: false,
+                legend: {
                     display: false
                 },
-                gridLines: {
-                    zeroLineColor: "transparent",
-                    drawTicks: false,
-                    display: false,
-                    drawBorder: false
-                }
-              }],
-              xAxes: [{
-                display:0,
-                gridLines:0,
-                ticks: {
-                    display: false
+                tooltips: {
+                    bodySpacing: 4,
+                    mode: "nearest",
+                    intersect: 0,
+                    position: "nearest",
+                    xPadding: 10,
+                    yPadding: 10,
+                    caretPadding: 10
                 },
-                gridLines: {
-                  zeroLineColor: "transparent",
-                  drawTicks: false,
-                  display: false,
-                  drawBorder: false
+                responsive: true,
+                scales: {
+                    yAxes: [{
+                        display: 0,
+                        gridLines: 0,
+                        ticks: {
+                            display: false
+                        },
+                        gridLines: {
+                            zeroLineColor: "transparent",
+                            drawTicks: false,
+                            display: false,
+                            drawBorder: false
+                        }
+                    }],
+                    xAxes: [{
+                        display: 0,
+                        gridLines: 0,
+                        ticks: {
+                            display: false
+                        },
+                        gridLines: {
+                            zeroLineColor: "transparent",
+                            drawTicks: false,
+                            display: false,
+                            drawBorder: false
+                        }
+                    }]
+                },
+                layout: {
+                    padding: { left: 0, right: 0, top: 15, bottom: 15 }
                 }
-              }]
-          },
-          layout:{
-            padding:{left:0,right:0,top:15,bottom:15}
-          }
-      };
+            };
 
-      ctx = document.getElementById('lineChartExample').getContext("2d");
+            ctx = document.getElementById('lineChartExample').getContext("2d");
 
-      gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
-      gradientStroke.addColorStop(0, '#80b6f4');
-      gradientStroke.addColorStop(1, chartColor);
+            gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
+            gradientStroke.addColorStop(0, '#80b6f4');
+            gradientStroke.addColorStop(1, chartColor);
 
-      gradientFill = ctx.createLinearGradient(0, 170, 0, 50);
-      gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
-      gradientFill.addColorStop(1, "rgba(249, 99, 59, 0.40)");
+            gradientFill = ctx.createLinearGradient(0, 170, 0, 50);
+            gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
+            gradientFill.addColorStop(1, "rgba(249, 99, 59, 0.40)");
 
-      myChart = new Chart(ctx, {
-          type: 'line',
-          responsive: true,
-          data: {
-              labels: [{% for item in dates %}
+            myChart = new Chart(ctx, {
+                type: 'line',
+                responsive: true,
+                data: {
+                    labels: [{% for item in dates %}
              "{{item}}",
             {% endfor %}],
-               //["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-              datasets: [{
-                  label: "Active Users",
-                  borderColor: "#f96332",
-                  pointBorderColor: "#FFF",
-                  pointBackgroundColor: "#f96332",
-                  pointBorderWidth: 2,
-                  pointHoverRadius: 4,
-                  pointHoverBorderWidth: 1,
-                  pointRadius: 4,
-                  fill: true,
-                  backgroundColor: gradientFill,
-                  borderWidth: 2,
-                  data: [{% for item in gvs %}
+        //["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        datasets: [{
+            label: "Active Users",
+            borderColor: "#f96332",
+            pointBorderColor: "#FFF",
+            pointBackgroundColor: "#f96332",
+            pointBorderWidth: 2,
+            pointHoverRadius: 4,
+            pointHoverBorderWidth: 1,
+            pointRadius: 4,
+            fill: true,
+            backgroundColor: gradientFill,
+            borderWidth: 2,
+            data: [{% for item in gvs %}
              "{{item}}",
-            {% endfor %}],//[542, 480, 430, 550, 530, 453, 380, 434, 568, 610, 700, 630]
+        {% endfor %}],//[542, 480, 430, 550, 530, 453, 380, 434, 568, 610, 700, 630]
               }]
           },
-          options: gradientChartOptionsConfiguration
+    options: gradientChartOptionsConfiguration
       });
     },
 
-    initDashboardPageCharts: function(){
+    initDashboardPageCharts: function() {
 
-      chartColor = "#FFFFFF";
+        chartColor = "#FFFFFF";
 
-      // General configuration for the charts with Line gradientStroke
-      gradientChartOptionsConfiguration = {
-          maintainAspectRatio: false,
-          legend: {
-              display: false
-          },
-          tooltips: {
-            bodySpacing: 4,
-            mode:"nearest",
-            intersect: 0,
-            position:"nearest",
-            xPadding:10,
-            yPadding:10,
-            caretPadding:10
-          },
-          responsive: 1,
-          scales: {
-              yAxes: [{
-                display:0,
-                gridLines:0,
-                ticks: {
-                    display: false
-                },
-                gridLines: {
-                    zeroLineColor: "transparent",
-                    drawTicks: false,
-                    display: false,
-                    drawBorder: false
-                }
-              }],
-              xAxes: [{
-                display:0,
-                gridLines:0,
-                ticks: {
-                    display: false
-                },
-                gridLines: {
-                  zeroLineColor: "transparent",
-                  drawTicks: false,
-                  display: false,
-                  drawBorder: false
-                }
-              }]
-          },
-          layout:{
-            padding:{left:0,right:0,top:15,bottom:15}
-          }
-      };
+        // General configuration for the charts with Line gradientStroke
+        gradientChartOptionsConfiguration = {
+            maintainAspectRatio: false,
+            legend: {
+                display: false
+            },
+            tooltips: {
+                bodySpacing: 4,
+                mode: "nearest",
+                intersect: 0,
+                position: "nearest",
+                xPadding: 10,
+                yPadding: 10,
+                caretPadding: 10
+            },
+            responsive: 1,
+            scales: {
+                yAxes: [{
+                    display: 0,
+                    gridLines: 0,
+                    ticks: {
+                        display: false
+                    },
+                    gridLines: {
+                        zeroLineColor: "transparent",
+                        drawTicks: false,
+                        display: false,
+                        drawBorder: false
+                    }
+                }],
+                xAxes: [{
+                    display: 0,
+                    gridLines: 0,
+                    ticks: {
+                        display: false
+                    },
+                    gridLines: {
+                        zeroLineColor: "transparent",
+                        drawTicks: false,
+                        display: false,
+                        drawBorder: false
+                    }
+                }]
+            },
+            layout: {
+                padding: { left: 0, right: 0, top: 15, bottom: 15 }
+            }
+        };
 
-      gradientChartOptionsConfigurationWithNumbersAndGrid = {
-          maintainAspectRatio: false,
-          legend: {
-              display: false
-          },
-          tooltips: {
-            bodySpacing: 4,
-            mode:"nearest",
-            intersect: 0,
-            position:"nearest",
-            xPadding:10,
-            yPadding:10,
-            caretPadding:10
-          },
-          responsive: true,
-          scales: {
-              yAxes: [{
-                gridLines:0,
-                gridLines: {
-                    zeroLineColor: "transparent",
-                    drawBorder: false
-                }
-              }],
-              xAxes: [{
-                display:0,
-                gridLines:0,
-                ticks: {
-                    display: false
-                },
-                gridLines: {
-                  zeroLineColor: "transparent",
-                  drawTicks: false,
-                  display: false,
-                  drawBorder: false
-                }
-              }]
-          },
-          layout:{
-            padding:{left:0,right:0,top:15,bottom:15}
-          }
-      };
+        gradientChartOptionsConfigurationWithNumbersAndGrid = {
+            maintainAspectRatio: false,
+            legend: {
+                display: false
+            },
+            tooltips: {
+                bodySpacing: 4,
+                mode: "nearest",
+                intersect: 0,
+                position: "nearest",
+                xPadding: 10,
+                yPadding: 10,
+                caretPadding: 10
+            },
+            responsive: true,
+            scales: {
+                yAxes: [{
+                    gridLines: 0,
+                    gridLines: {
+                        zeroLineColor: "transparent",
+                        drawBorder: false
+                    }
+                }],
+                xAxes: [{
+                    display: 0,
+                    gridLines: 0,
+                    ticks: {
+                        display: false
+                    },
+                    gridLines: {
+                        zeroLineColor: "transparent",
+                        drawTicks: false,
+                        display: false,
+                        drawBorder: false
+                    }
+                }]
+            },
+            layout: {
+                padding: { left: 15, right: 15, top: 15, bottom: 15 }
+            }
+        };
 
-      var ctx = document.getElementById('bigDashboardChart').getContext("2d");
+        var ctx = document.getElementById('bigDashboardChart').getContext("2d");
 
-      var gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
-      gradientStroke.addColorStop(0, '#80b6f4');
-      gradientStroke.addColorStop(1, chartColor);
+        var gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
+        gradientStroke.addColorStop(0, '#80b6f4');
+        gradientStroke.addColorStop(1, chartColor);
 
-      var gradientFill = ctx.createLinearGradient(0, 200, 0, 50);
-      gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
-      gradientFill.addColorStop(1, "rgba(255, 255, 255, 0.24)");
+        var gradientFill = ctx.createLinearGradient(0, 200, 0, 50);
+        gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
+        gradientFill.addColorStop(1, "rgba(255, 255, 255, 0.24)");
 
-      var myChart = new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: [{% for item in dates %}
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [{% for item in dates %}
              "{{item}}",
             {% endfor %}],
     datasets: [{
         data: [{% for item in gvs %}
              "{{item}}",
-            {% endfor %}],//[1, 0, 4, 1, 12, 29, 51, 93, 168, 311, 277, 289, 293, 343, 561,
-          //1196, 2069, 1704, 1815, 1610, 2704, 2148, 2456, 2786, 3013, 3135,
-           //3148, 3892, 4117, 4056, 4747, 5138, 4789, 4093, 4062, 4281],
+    {% endfor %}],//[1, 0, 4, 1, 12, 29, 51, 93, 168, 311, 277, 289, 293, 343, 561,
+        //1196, 2069, 1704, 1815, 1610, 2704, 2148, 2456, 2786, 3013, 3135,
+        //3148, 3892, 4117, 4056, 4747, 5138, 4789, 4093, 4062, 4281],
         borderColor: chartColor,
-        pointBorderColor: chartColor,
-        label: "Günlük Vaka Sayısı",
-        borderColor: "#3e95cd",
-        fill: false
+            pointBorderColor: chartColor,
+                label: "Günlük Vaka Sayısı",
+                    borderColor: "#3e95cd",
+                        fill: false
       }, {
         data: [{% for item in tvs %}
-             "{{item}}",
-            {% endfor %}],
-        label: "Toplam Vaka Sayısı",
+    "{{item}}",
+        {% endfor %}],
+    label: "Toplam Vaka Sayısı",
         borderColor: "#8e5ea2",
-        fill: false
+            fill: false
       }, {
         data: [{% for item in gis %}
-             "{{item}}",
-            {% endfor %}],
-        label: "Günlük İyileşen Sayısı",
+    "{{item}}",
+        {% endfor %}],
+    label: "Günlük İyileşen Sayısı",
         borderColor: "#3cba9f",
-        fill: false
+            fill: false
       }, {
         data: [{% for item in tis %}
-             "{{item}}",
-            {% endfor %}],
-        label: "Toplam İyileşen Sayısı",
+    "{{item}}",
+        {% endfor %}],
+    label: "Toplam İyileşen Sayısı",
         borderColor: "#e8c3b9",
-        fill: false
+            fill: false
       }, {
         data: [{% for item in gvs2 %}
-             "{{item}}",
-            {% endfor %}],
-        label: "Günlük Vefat Sayısı",
+    "{{item}}",
+        {% endfor %}],
+    label: "Günlük Vefat Sayısı",
         borderColor: "#c45850",
-        fill: false
+            fill: false
       },
-      {
+    {
         data: [{% for item in tvs2 %}
-             "{{item}}",
-            {% endfor %}],
-        label: "Toplam Vefat Sayısı",
+    "{{item}}",
+        {% endfor %}],
+    label: "Toplam Vefat Sayısı",
         borderColor: "#c368975",
-        fill: false
+            fill: false
       },
-      {
+    {
         data: [{% for item in gts %}
-             "{{item}}",
-            {% endfor %}],
-        label: "Günlük Test Sayısı",
+    "{{item}}",
+        {% endfor %}],
+    label: "Günlük Test Sayısı",
         borderColor: "#8bcd52",
-        fill: false
+            fill: false
       },
-      {
+    {
         data: [{% for item in tts %}
-             "{{item}}",
-            {% endfor %}],
-        label: "Toplam Test Sayısı",
+    "{{item}}",
+        {% endfor %}],
+    label: "Toplam Test Sayısı",
         borderColor: "#FF7F50",
-        fill: false
+            fill: false
       }
     ]
   },
-  options: {
-    layout: {
-        padding: {
-            left: 20,
-            right: 20,
-            top: 0,
-            bottom: 0
-        }
-    },
-    maintainAspectRatio: false,
-    tooltips: {
-      backgroundColor: '#fff',
-      titleFontColor: '#333',
-      bodyFontColor: '#666',
-      bodySpacing: 4,
-      xPadding: 12,
-      mode: "nearest",
-      intersect: 0,
-      position: "nearest"
-    },
-    legend: {
-        position: "bottom",
-        labels :{
-          fontColor: "#FFFFFF",
+    options: {
+        layout: {
+            padding: {
+                left: 20,
+                    right: 20,
+                        top: 0,
+                            bottom: 0
+            }
         },
-        fillStyle: "#FFF",
-        display: true
-    },
-    scales: {
-        yAxes: [{
-            ticks: {
-                fontColor: "rgba(255,255,255,0.4)",
-                fontStyle: "bold",
-                beginAtZero: true,
-                maxTicksLimit: 5,
-                padding: 10
-            },
-            gridLines: {
-                drawTicks: true,
-                drawBorder: false,
-                display: true,
-                color: "rgba(255,255,255,0.1)",
-                zeroLineColor: "transparent"
-            }
+        maintainAspectRatio: false,
+            tooltips: {
+            backgroundColor: '#fff',
+                titleFontColor: '#333',
+                    bodyFontColor: '#666',
+                        bodySpacing: 4,
+                            xPadding: 12,
+                                mode: "nearest",
+                                    intersect: 0,
+                                        position: "nearest"
+        },
+        legend: {
+            position: "bottom",
+                labels : {
+                fontColor: "#FFFFFF",
+        },
+            fillStyle: "#FFF",
+                display: true
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    fontColor: "rgba(255,255,255,0.4)",
+                    fontStyle: "bold",
+                    beginAtZero: true,
+                    maxTicksLimit: 5,
+                    padding: 10
+                },
+                gridLines: {
+                    drawTicks: true,
+                    drawBorder: false,
+                    display: true,
+                    color: "rgba(255,255,255,0.1)",
+                    zeroLineColor: "transparent"
+                }
 
-        }],
-        xAxes: [{
-            gridLines: {
-                zeroLineColor: "transparent",
-                display: false,
+            }],
+                xAxes: [{
+                    gridLines: {
+                        zeroLineColor: "transparent",
+                        display: false,
 
-            },
-            ticks: {
-                padding: 10,
-                fontColor: "rgba(255,255,255,0.4)",
-                fontStyle: "bold"
-            }
-        }]
+                    },
+                    ticks: {
+                        padding: 10,
+                        fontColor: "rgba(255,255,255,0.4)",
+                        fontStyle: "bold"
+                    }
+                }]
+        }
     }
-}
   /*options: {
     title: {
       display: true,
@@ -752,21 +849,21 @@ demo = {
 });
 
 
-ctx = document.getElementById('lineChartExample').getContext("2d");
+    ctx = document.getElementById('lineChartExample').getContext("2d");
 
-gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
-gradientStroke.addColorStop(0, '#FF7F50');
-gradientStroke.addColorStop(1, chartColor);
+    gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
+    gradientStroke.addColorStop(0, '#FF7F50');
+    gradientStroke.addColorStop(1, chartColor);
 
-gradientFill = ctx.createLinearGradient(0, 170, 0, 50);
-gradientFill.addColorStop(0, "rgba(1, 182, 244, 0)");
-gradientFill.addColorStop(0.7, hexToRGB('#FF7F50',0.3));
+    gradientFill = ctx.createLinearGradient(0, 170, 0, 50);
+    gradientFill.addColorStop(0, "rgba(1, 182, 244, 0)");
+    gradientFill.addColorStop(0.7, hexToRGB('#FF7F50', 0.3));
 
-myChart = new Chart(ctx, {
-    type: 'line',
-    responsive: true,
-    data: {
-        labels: [{% for item in dates %}
+    myChart = new Chart(ctx, {
+        type: 'line',
+        responsive: true,
+        data: {
+            labels: [{% for item in dates %}
        "{{item}}",
       {% endfor %}],
         datasets: [{
@@ -783,64 +880,255 @@ myChart = new Chart(ctx, {
             borderWidth: 2,
             data: [{% for item in gvs %}
        "{{item}}",
-      {% endfor %}],
+        {% endfor %}],
         }]
     },
-    options: gradientChartOptionsConfigurationWithNumbersAndGrid
+        options: gradientChartOptionsConfigurationWithNumbersAndGrid
 });
 
-      ctx = document.getElementById('lineChartExampleWithNumbersAndGrid').getContext("2d");
 
-      gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
-      gradientStroke.addColorStop(0, '#18ce0f');
-      gradientStroke.addColorStop(1, chartColor);
+    ctx = document.getElementById('toplamvakasayısı').getContext("2d");
 
-      gradientFill = ctx.createLinearGradient(0, 170, 0, 50);
-      gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
-      gradientFill.addColorStop(1, hexToRGB('#18ce0f',0.6));
+    gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
+    gradientStroke.addColorStop(0, '#FF7F50');
+    gradientStroke.addColorStop(1, chartColor);
 
-      myChart = new Chart(ctx, {
-          type: 'line',
-          responsive: true,
-          data: {
-              labels: [{% for item in dates %}
+    gradientFill = ctx.createLinearGradient(0, 170, 0, 50);
+    gradientFill.addColorStop(0, "rgba(1, 182, 244, 0)");
+    gradientFill.addColorStop(0.7, hexToRGB('#FF7F50', 0.3));
+
+    myChart = new Chart(ctx, {
+        type: 'line',
+        responsive: true,
+        data: {
+            labels: [{% for item in dates %}
+       "{{item}}",
+      {% endfor %}],
+        datasets: [{
+            label: "Toplam Vaka Sayısı",
+            borderColor: "#FF7F50",
+            pointBorderColor: "#FFF",
+            pointBackgroundColor: "#FF7F50",
+            pointBorderWidth: 2,
+            pointHoverRadius: 4,
+            pointHoverBorderWidth: 1,
+            pointRadius: 4,
+            fill: true,
+            backgroundColor: gradientFill,
+            borderWidth: 2,
+            data: [{% for item in tvs %}
+       "{{item}}",
+        {% endfor %}],
+        }]
+    },
+        options: gradientChartOptionsConfigurationWithNumbersAndGrid
+});
+
+    ctx = document.getElementById('lineChartExampleWithNumbersAndGrid').getContext("2d");
+
+    gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
+    gradientStroke.addColorStop(0, '#18ce0f');
+    gradientStroke.addColorStop(1, chartColor);
+
+    gradientFill = ctx.createLinearGradient(0, 170, 0, 50);
+    gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
+    gradientFill.addColorStop(1, hexToRGB('#18ce0f', 0.6));
+
+    myChart = new Chart(ctx, {
+        type: 'line',
+        responsive: true,
+        data: {
+            labels: [{% for item in dates %}
              "{{item}}",
             {% endfor %}],
-              datasets: [{
-                  label: "Toplam İyileşen Sayısı",
-                  borderColor: "#18ce0f",
-                  pointBorderColor: "#FFF",
-                  pointBackgroundColor: "#18ce0f",
-                  pointBorderWidth: 2,
-                  pointHoverRadius: 4,
-                  pointHoverBorderWidth: 1,
-                  pointRadius: 4,
-                  fill: true,
-                  backgroundColor: gradientFill,
-                  borderWidth: 2,
-                  data: [{% for item in tis %}
+        datasets: [{
+            label: "Toplam İyileşen Sayısı",
+            borderColor: "#18ce0f",
+            pointBorderColor: "#FFF",
+            pointBackgroundColor: "#18ce0f",
+            pointBorderWidth: 2,
+            pointHoverRadius: 4,
+            pointHoverBorderWidth: 1,
+            pointRadius: 4,
+            fill: true,
+            backgroundColor: gradientFill,
+            borderWidth: 2,
+            data: [{% for item in tis %}
              "{{item}}",
-            {% endfor %}],
+        {% endfor %}],
               }]
           },
-          options: gradientChartOptionsConfigurationWithNumbersAndGrid
+        options: gradientChartOptionsConfigurationWithNumbersAndGrid
       });
 
-      var e = document.getElementById("barChartSimpleGradientsNumbers").getContext("2d");
+    var e = document.getElementById("barChartSimpleGradientsNumbers").getContext("2d");
 
-      gradientFill = ctx.createLinearGradient(0, 170, 0, 50);
-      gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
-      gradientFill.addColorStop(1, hexToRGB('#2CA8FF', 0.6));
+    gradientFill = ctx.createLinearGradient(0, 170, 0, 50);
+    gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
+    gradientFill.addColorStop(1, hexToRGB('#8e5ea2', 0.6));
 
-      var a =  {
-        type : "bar",
-        data : {
-          labels : [{% for item in dates %}
+    var a = {
+        type: "bar",
+        data: {
+            labels: [{% for item in dates %}
              "{{item}}",
             {% endfor %}],
-          datasets: [{
-            label: "Toplam Vefat Sayısı",
+    datasets: [{
+        label: "Toplam Vefat Sayısı",
+        backgroundColor: gradientFill,
+        borderColor: "#8e5ea2",
+        pointBorderColor: "#FFF",
+        pointBackgroundColor: "#8e5ea2",
+        pointBorderWidth: 2,
+        pointHoverRadius: 4,
+        pointHoverBorderWidth: 1,
+        pointRadius: 4,
+        fill: true,
+        borderWidth: 1,
+        data: [{% for item in tvs2 %}
+             "{{item}}",
+    {% endfor %}],
+          }]
+        },
+    options: {
+        maintainAspectRatio: false,
+            legend: {
+            display: false
+        },
+        tooltips: {
+            bodySpacing: 4,
+                mode: "nearest",
+                    intersect: 0,
+                        position: "nearest",
+                            xPadding: 10,
+                                yPadding: 10,
+                                    caretPadding: 10
+        },
+        responsive: 1,
+            scales: {
+            yAxes: [{
+                gridLines: 0,
+                gridLines: {
+                    zeroLineColor: "transparent",
+                    drawBorder: false
+                }
+            }],
+                xAxes: [{
+                    display: 0,
+                    gridLines: 0,
+                    ticks: {
+                        display: false
+                    },
+                    gridLines: {
+                        zeroLineColor: "transparent",
+                        drawTicks: false,
+                        display: false,
+                        drawBorder: false
+                    }
+                }]
+        },
+        layout: {
+            padding: { left: 15, right: 15, top: 15, bottom: 15 }
+        }
+    }
+      };
+
+
+    ctx = document.getElementById('gunlukiyilesensayisi').getContext("2d");
+
+    gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
+    gradientStroke.addColorStop(0, '#18ce0f');
+    gradientStroke.addColorStop(1, chartColor);
+
+    gradientFill = ctx.createLinearGradient(0, 170, 0, 50);
+    gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
+    gradientFill.addColorStop(1, hexToRGB('#18ce0f', 0.6));
+
+    myChart = new Chart(ctx, {
+        type: 'line',
+        responsive: true,
+        data: {
+            labels: [{% for item in dates %}
+       "{{item}}",
+      {% endfor %}],
+        datasets: [{
+            label: "Günlük İyileşen Sayısı",
+            borderColor: "#18ce0f",
+            pointBorderColor: "#FFF",
+            pointBackgroundColor: "#18ce0f",
+            pointBorderWidth: 2,
+            pointHoverRadius: 4,
+            pointHoverBorderWidth: 1,
+            pointRadius: 4,
+            fill: true,
             backgroundColor: gradientFill,
+            borderWidth: 2,
+            data: [{% for item in gis %}
+       "{{item}}",
+        {% endfor %}],
+        }]
+    },
+        options: gradientChartOptionsConfigurationWithNumbersAndGrid,
+            
+});
+
+    ctx = document.getElementById('gunlukvefatsayisi').getContext("2d");
+
+    gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
+    gradientStroke.addColorStop(0, '#8e5ea2');
+    gradientStroke.addColorStop(1, chartColor);
+
+    gradientFill = ctx.createLinearGradient(0, 170, 0, 50);
+    gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
+    gradientFill.addColorStop(1, hexToRGB('#8e5ea2', 0.6));
+
+    myChart = new Chart(ctx, {
+        type: 'line',
+        responsive: true,
+        data: {
+            labels: [{% for item in dates %}
+       "{{item}}",
+      {% endfor %}],
+        datasets: [{
+            label: "Günlük Vefat Sayısı",
+            borderColor: "#8e5ea2",
+            pointBorderColor: "#FFF",
+            pointBackgroundColor: "#8e5ea2",
+            pointBorderWidth: 2,
+            pointHoverRadius: 4,
+            pointHoverBorderWidth: 1,
+            pointRadius: 4,
+            fill: true,
+            backgroundColor: gradientFill,
+            borderWidth: 2,
+            data: [{% for item in gvs2 %}
+       "{{item}}",
+        {% endfor %}],
+        }]
+    },
+        options: gradientChartOptionsConfigurationWithNumbersAndGrid,
+});
+
+
+    ctx = document.getElementById('gunluktestsayisi').getContext("2d");
+
+    gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
+    gradientStroke.addColorStop(0, '#2CA8FF');
+    gradientStroke.addColorStop(1, chartColor);
+
+    gradientFill = ctx.createLinearGradient(0, 170, 0, 50);
+    gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
+    gradientFill.addColorStop(1, hexToRGB('#82CA8FF', 0.6));
+
+    myChart = new Chart(ctx, {
+        type: 'line',
+        responsive: true,
+        data: {
+            labels: [{% for item in dates %}
+       "{{item}}",
+      {% endfor %}],
+        datasets: [{
+            label: "Günlük Test Sayısı",
             borderColor: "#2CA8FF",
             pointBorderColor: "#FFF",
             pointBackgroundColor: "#2CA8FF",
@@ -849,85 +1137,83 @@ myChart = new Chart(ctx, {
             pointHoverBorderWidth: 1,
             pointRadius: 4,
             fill: true,
-            borderWidth: 1,
-            data: [{% for item in tvs2 %}
-             "{{item}}",
-            {% endfor %}],
-          }]
-        },
-        options: {
-            maintainAspectRatio: false,
-            legend: {
-                display: false
-            },
-            tooltips: {
-              bodySpacing: 4,
-              mode:"nearest",
-              intersect: 0,
-              position:"nearest",
-              xPadding:10,
-              yPadding:10,
-              caretPadding:10
-            },
-            responsive: 1,
-            scales: {
-                yAxes: [{
-                  gridLines:0,
-                  gridLines: {
-                      zeroLineColor: "transparent",
-                      drawBorder: false
-                  }
-                }],
-                xAxes: [{
-                  display:0,
-                  gridLines:0,
-                  ticks: {
-                      display: false
-                  },
-                  gridLines: {
-                    zeroLineColor: "transparent",
-                    drawTicks: false,
-                    display: false,
-                    drawBorder: false
-                  }
-                }]
-            },
-            layout:{
-              padding:{left:0,right:0,top:15,bottom:15}
-            }
-        }
-      };
-
-      var viewsChart = new Chart(e,a);
+            backgroundColor: gradientFill,
+            borderWidth: 2,
+            data: [{% for item in gts %}
+       "{{item}}",
+        {% endfor %}],
+        }]
     },
-    initGoogleMaps: function(){
+        options: gradientChartOptionsConfigurationWithNumbersAndGrid
+});
+
+    ctx = document.getElementById('toplamtestsayisi').getContext("2d");
+
+    gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
+    gradientStroke.addColorStop(0, '#2CA8FF');
+    gradientStroke.addColorStop(1, chartColor);
+
+    gradientFill = ctx.createLinearGradient(0, 170, 0, 50);
+    gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
+    gradientFill.addColorStop(1, hexToRGB('#82CA8FF', 0.6));
+
+    myChart = new Chart(ctx, {
+        type: 'line',
+        responsive: true,
+        data: {
+            labels: [{% for item in dates %}
+       "{{item}}",
+      {% endfor %}],
+        datasets: [{
+            label: "Toplam Test Sayısı",
+            borderColor: "#2CA8FF",
+            pointBorderColor: "#FFF",
+            pointBackgroundColor: "#2CA8FF",
+            pointBorderWidth: 2,
+            pointHoverRadius: 4,
+            pointHoverBorderWidth: 1,
+            pointRadius: 4,
+            fill: true,
+            backgroundColor: gradientFill,
+            borderWidth: 2,
+            data: [{% for item in tts %}
+       "{{item}}",
+        {% endfor %}],
+        }]
+    },
+        options: gradientChartOptionsConfigurationWithNumbersAndGrid
+});
+
+    var viewsChart = new Chart(e, a);
+    },
+    initGoogleMaps: function() {
         var myLatlng = new google.maps.LatLng(40.748817, -73.985428);
         var mapOptions = {
-          zoom: 13,
-          center: myLatlng,
-          scrollwheel: false, //we disable de scroll over the map, it is a really annoing when you scroll through page
-          styles: [{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]}]
+            zoom: 13,
+            center: myLatlng,
+            scrollwheel: false, //we disable de scroll over the map, it is a really annoing when you scroll through page
+            styles: [{ "featureType": "water", "elementType": "geometry", "stylers": [{ "color": "#e9e9e9" }, { "lightness": 17 }] }, { "featureType": "landscape", "elementType": "geometry", "stylers": [{ "color": "#f5f5f5" }, { "lightness": 20 }] }, { "featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{ "color": "#ffffff" }, { "lightness": 17 }] }, { "featureType": "road.highway", "elementType": "geometry.stroke", "stylers": [{ "color": "#ffffff" }, { "lightness": 29 }, { "weight": 0.2 }] }, { "featureType": "road.arterial", "elementType": "geometry", "stylers": [{ "color": "#ffffff" }, { "lightness": 18 }] }, { "featureType": "road.local", "elementType": "geometry", "stylers": [{ "color": "#ffffff" }, { "lightness": 16 }] }, { "featureType": "poi", "elementType": "geometry", "stylers": [{ "color": "#f5f5f5" }, { "lightness": 21 }] }, { "featureType": "poi.park", "elementType": "geometry", "stylers": [{ "color": "#dedede" }, { "lightness": 21 }] }, { "elementType": "labels.text.stroke", "stylers": [{ "visibility": "on" }, { "color": "#ffffff" }, { "lightness": 16 }] }, { "elementType": "labels.text.fill", "stylers": [{ "saturation": 36 }, { "color": "#333333" }, { "lightness": 40 }] }, { "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }, { "featureType": "transit", "elementType": "geometry", "stylers": [{ "color": "#f2f2f2" }, { "lightness": 19 }] }, { "featureType": "administrative", "elementType": "geometry.fill", "stylers": [{ "color": "#fefefe" }, { "lightness": 20 }] }, { "featureType": "administrative", "elementType": "geometry.stroke", "stylers": [{ "color": "#fefefe" }, { "lightness": 17 }, { "weight": 1.2 }] }]
         };
 
         var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
         var marker = new google.maps.Marker({
             position: myLatlng,
-            title:"Hello World!"
+            title: "Hello World!"
         });
 
         // To add the marker to the map, call setMap();
         marker.setMap(map);
     },
 
-	showNotification: function(from, align){
-    	color = 'primary';
+    showNotification: function(from, align) {
+        color = 'primary';
 
-    	$.notify({
-        	icon: "now-ui-icons ui-1_bell-53",
-        	message: "Welcome to <b>Now Ui Dashboard Pro</b> - a beautiful freebie for every web developer."
+        $.notify({
+            icon: "now-ui-icons ui-1_bell-53",
+            message: "Welcome to <b>Now Ui Dashboard Pro</b> - a beautiful freebie for every web developer."
 
-        },{
+        }, {
             type: color,
             timer: 8000,
             placement: {
@@ -935,7 +1221,7 @@ myChart = new Chart(ctx, {
                 align: align
             }
         });
-	}
+    }
 
 };
 
