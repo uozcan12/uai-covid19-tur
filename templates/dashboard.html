@@ -126,7 +126,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table id="myTable" class="table">
                                         <thead class=" text-primary">
                                             {% for i in titles %}
                                             <th> {{i}} </th>
@@ -135,7 +135,7 @@
                                         <tbody>
                                             {% for i in dates %}
                                           <tr>
-                                              <td>{{ dates[loop.index0]}}</td>
+                                              <td data-type="date">{{ dates[loop.index0]}}</td>
                                               <td>{{ gvs[loop.index0] }}</td>
                                               <td>{{ tvs[loop.index0] }}</td>
                                               <td>{{ gis[loop.index0] }}</td>
@@ -379,12 +379,26 @@
 <script src="{{ url_for('static', filename='js/now-ui-dashboard.js') }}"></script>
 <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
 <!--<script src="{{ url_for('static', filename='demo/demo.js') }}"></script>-->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dataTables.min.css') }}" />
+<script type="text/javascript" src="{{ url_for('static', filename='js/dataTables.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/date-de.js') }}"></script>
+
 <script>
     $(document).ready(function() {
         // Javascript method's body can be found in static/js/demos.js
         demo.initDashboardPageCharts();
     });
 </script>
+<script>
+    $(document).ready(function(){
+        $('#myTable').dataTable({
+            columnDefs: [
+              { type: 'de_date', targets: 0 }
+            ]
+         });
+    });
+</script>
+
 <script>
 demo = {
     initPickColor: function(){
