@@ -6,7 +6,7 @@ import pandas as pd
 
 options = Options()
 options.headless = True
-driver = webdriver.Chrome(options=options, executable_path='/home/aslihan/Documents/github/uai-covid19-tur/chromedriver')
+driver = webdriver.Chrome(options=options, executable_path='chromedriver/chromedriver')
 driver.get("https://covid19.saglik.gov.tr/?lang=tr-TR")
 print ("Headless Chrome Initialized")
 
