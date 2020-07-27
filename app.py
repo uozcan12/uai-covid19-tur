@@ -30,19 +30,25 @@ def hello():
         return fcast
 
     def get_holt_finish_getnumber(first_list, date_list):
-        
         try:
             data_series = pd.Series(first_list, date_list)
             fit = Holt(data_series).fit(smoothing_level=0.8, smoothing_slope=0.2, optimized=False)
+            test_forecast=[]
+            forecast_message=""
             for i in range(1,1000):
-                if(fit.forecast(i)[-1]<=0):
+                test_forecast = fit.forecast(i) 
+                res = all(i < j for i, j in zip(test_forecast, test_forecast[1:])) 
+                if(test_forecast[-1]<=0 and str(res)):
+                    forecast_message="Tahmini Bitiş Tarihi"
                     fcast = i
                     break
-            
+                else:
+                    fcast = 100
+                    forecast_message = "100 Gün Sonrasının Tahmini"
         except UnboundLocalError as e:
             raise e
         
-        return fcast
+        return fcast, forecast_message
 
     def get_holt_finish(first_list, date_list, day_after):
         data_series=pd.Series(first_list, date_list)
@@ -119,21 +125,22 @@ def hello():
     gts_holt_week=get_holt_value(gts,dates_range)
     tts_holt_week=get_holt_value(tts,dates_range)
 
-    #gvs_holt_finish=get_holt_finish_getnumber(gvs,dates_range)
-    # gvs_holt_finish=200
-    # start_pred_date=dates[-1]
-    # end_pred_date=pd.to_datetime(start_pred_date, dayfirst=True) + pd.DateOffset(gvs_holt_finish-1)
-    # end_pred_date=end_pred_date.strftime('%d.%m.%Y')
+    gvs_holt_finish, for_message=get_holt_finish_getnumber(gvs,dates_range)
+    print(gvs_holt_finish, for_message)
+    gvs_holt_finish=200
+    start_pred_date=dates[-1]
+    end_pred_date=pd.to_datetime(start_pred_date, dayfirst=True) + pd.DateOffset(gvs_holt_finish-1)
+    end_pred_date=end_pred_date.strftime('%d.%m.%Y')
 
-    # day_after=gvs_holt_finish-1
-    # gvs_holt_finish=get_holt_finish(gvs,dates_range,day_after) 
-    # tvs_holt_finish=get_holt_finish(tvs,dates_range,day_after)
-    # gis_holt_finish=get_holt_finish(gis,dates_range,day_after)
-    # tis_holt_finish=get_holt_finish(tis,dates_range,day_after)
-    # gvs2_holt_finish=get_holt_finish(gvs2,dates_range,day_after)
-    # tvs2_holt_finish=get_holt_finish(tvs2,dates_range,day_after)
-    # gts_holt_finish=get_holt_finish(gts,dates_range,day_after)
-    # tts_holt_finish=get_holt_finish(tts,dates_range,day_after)
+    day_after=gvs_holt_finish-1
+    gvs_holt_finish=get_holt_finish(gvs,dates_range,day_after) 
+    tvs_holt_finish=get_holt_finish(tvs,dates_range,day_after)
+    gis_holt_finish=get_holt_finish(gis,dates_range,day_after)
+    tis_holt_finish=get_holt_finish(tis,dates_range,day_after)
+    gvs2_holt_finish=get_holt_finish(gvs2,dates_range,day_after)
+    tvs2_holt_finish=get_holt_finish(tvs2,dates_range,day_after)
+    gts_holt_finish=get_holt_finish(gts,dates_range,day_after)
+    tts_holt_finish=get_holt_finish(tts,dates_range,day_after)
 
     return render_template('dashboard.html',
         dates=dates,
@@ -171,6 +178,16 @@ def hello():
         tvs2_holt_week=tvs2_holt_week,
         gts_holt_week=gts_holt_week,
         tts_holt_week=tts_holt_week,
+        gvs_holt_finish=gvs_holt_finish,
+        tvs_holt_finish=tvs_holt_finish,
+        gis_holt_finish=gis_holt_finish,
+        tis_holt_finish=tis_holt_finish,
+        gvs2_holt_finish=gvs2_holt_finish,
+        tvs2_holt_finish=tvs2_holt_finish,
+        gts_holt_finish=gts_holt_finish,
+        tts_holt_finish=tts_holt_finish,
+        end_pred_date=end_pred_date,
+        for_message=for_message
         )
     # return render_template('dashboard.html',
     #     dates=dates,
