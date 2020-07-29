@@ -19,11 +19,11 @@ def month_string_to_number(string):
          'MAYIS':"05",
          'HAZİRAN':"06",
          'TEMMUZ':"07",
-         'AĞUSTOS':8,
-         'EYLÜL':9,
-         'EKİM':10,
-         'KASIM':11,
-         'ARALIK':12
+         'AĞUSTOS':"08",
+         'EYLÜL':"09",
+         'EKİM':"10",
+         'KASIM':"11",
+         'ARALIK':"12"
         }
     s = string.strip()
 

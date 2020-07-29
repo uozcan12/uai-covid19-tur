@@ -127,7 +127,6 @@ def hello():
 
     gvs_holt_finish, for_message=get_holt_finish_getnumber(gvs,dates_range)
     print(gvs_holt_finish, for_message)
-    gvs_holt_finish=200
     start_pred_date=dates[-1]
     end_pred_date=pd.to_datetime(start_pred_date, dayfirst=True) + pd.DateOffset(gvs_holt_finish-1)
     end_pred_date=end_pred_date.strftime('%d.%m.%Y')
@@ -189,52 +188,6 @@ def hello():
         end_pred_date=end_pred_date,
         for_message=for_message
         )
-    # return render_template('dashboard.html',
-    #     dates=dates,
-    #     gvs=gvs,
-    #     tvs=tvs,
-    #     gis=gis,
-    #     tis=tis,
-    #     gvs2=gvs2,
-    #     tvs2=tvs2,
-    #     gts=gts,
-    #     tts=tts,
-    #     titles=titles,
-    #     gvs_1=gvs_1,
-    #     tvs_1=tvs_1,
-    #     gis_1=gis_1,
-    #     tis_1=tis_1,
-    #     gvs2_1=gvs2_1,
-    #     tvs2_1=tvs2_1,
-    #     gts_1=gts_1,
-    #     tts_1=tts_1,
-    #     seven_days_period=seven_days_period,
-    #     gvs_simple_smoothing_tomorrow=gvs_simple_smoothing_tomorrow,
-    #     tvs_simple_smoothing_tomorrow=tvs_simple_smoothing_tomorrow,
-    #     gis_simple_smoothing_tomorrow=gis_simple_smoothing_tomorrow,
-    #     tis_simple_smoothing_tomorrow=tis_simple_smoothing_tomorrow,
-    #     gvs2_simple_smoothing_tomorrow=gvs2_simple_smoothing_tomorrow,
-    #     tvs2_simple_smoothing_tomorrow=tvs2_simple_smoothing_tomorrow,
-    #     gts_simple_smoothing_tomorrow=gts_simple_smoothing_tomorrow,
-    #     tts_simple_smoothing_tomorrow=tts_simple_smoothing_tomorrow,
-    #     gvs_holt_week=gvs_holt_week,
-    #     tvs_holt_week=tvs_holt_week,
-    #     gis_holt_week=gis_holt_week,
-    #     tis_holt_week=tis_holt_week,
-    #     gvs2_holt_week=gvs2_holt_week,
-    #     tvs2_holt_week=tvs2_holt_week,
-    #     gts_holt_week=gts_holt_week,
-    #     tts_holt_week=tts_holt_week,
-    #     gvs_holt_finish=gvs_holt_finish,
-    #     tvs_holt_finish=tvs_holt_finish,
-    #     gis_holt_finish=gis_holt_finish,
-    #     tis_holt_finish=tis_holt_finish,
-    #     gvs2_holt_finish=gvs2_holt_finish,
-    #     tvs2_holt_finish=tvs2_holt_finish,
-    #     gts_holt_finish=gts_holt_finish,
-    #     tts_holt_finish=tts_holt_finish,
-    #     end_pred_date=end_pred_date
-    #     )    
 
 if __name__ == "__main__":
     app.run(debug=True, port=5002)
