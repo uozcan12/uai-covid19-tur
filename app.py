@@ -8,9 +8,6 @@ from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
 from statsmodels.tsa.api import Holt, SimpleExpSmoothing
 
-#loop = asyncio.new_event_loop()
-#asyncio.set_event_loop(loop)
-#loop = asyncio.get_event_loop()
 app=Flask(__name__)
 
 async def async_get_seven_days_prediction(a, b):
