@@ -14,6 +14,8 @@
     <link href="{{ url_for('static', filename='css/now-ui-dashboard.css') }}" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{ url_for('static', filename='demo/demo.css') }}" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" rel="stylesheet" />
+
 </head>
 
 <body class="">
@@ -126,7 +128,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table class="table" id="mainDataTable">
                                         <thead class=" text-primary">
                                             {% for i in titles %}
                                             <th> {{i}} </th>
@@ -406,7 +408,6 @@
 <script src="{{ url_for('static', filename='js/core/bootstrap.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>
 <!--  Google Maps Plugin    -->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 <!-- Chart JS -->
 <script src="{{ url_for('static', filename='js/plugins/chartjs.min.js') }}"></script>
 <!--  Notifications Plugin    -->
@@ -961,6 +962,19 @@ myChart = new Chart(ctx, {
 
 };
 
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+<script src="https://cdn.datatables.net/plug-ins/1.10.24/sorting/datetime-moment.js"></script>
+<script>
+    $.fn.dataTable.moment('DD.MM.YYYY');
+    $(document).ready(function() {
+        $('#mainDataTable').DataTable( {
+            "pagingType": "full_numbers",
+            "order": [[0, "asc"]]
+        } );
+    } );
 </script>
 
 </html>
