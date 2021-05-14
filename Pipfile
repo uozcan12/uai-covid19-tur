@@ -8,19 +8,18 @@ pylint = "*"
 autopep8 = "*"
 
 [packages]
-flask = "*"
+flask = {extras = ["async"], version = "*"}
 pandas = "*"
 gunicorn = "*"
-sklearn = "*"
+scikit-learn = "*"
 numpy = "*"
-bs4 = "*"
 requests = "*"
 html5lib = "*"
 matplotlib = "*"
 statsmodels = "*"
 apscheduler = "*"
 gitpython = "*"
-selenium = "*"
+asyncio = "*"
 
 [requires]
 python_version = "3.7"

@@ -15,6 +15,8 @@
     <link href="{{ url_for('static', filename='css/now-ui-dashboard.css') }}" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{ url_for('static', filename='demo/demo.css') }}" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" rel="stylesheet" />
+
 </head>
 
 <body class="">
@@ -44,13 +46,13 @@
                     <li class="active">
                         <a>
                             <i class="now-ui-icons users_single-02"></i>
-                            <p><b> Toplam Vaka Sayısı : {{tvs[-1]}}</b> </p>
+                            <p><b> Toplam Hasta Sayısı : {{tvs[-1]}}</b> </p>
                         </a>
                     </li>
                     <li>
                         <a href="">
                             <i class="now-ui-icons users_single-02"></i>
-                            <p><b>Günlük Vaka Sayısı : {{gvs[-1]}}</b> </p>
+                            <p><b>Günlük Hasta Sayısı : {{gvs[-1]}}</b> </p>
                         </a>
                     </li>
                     <li>
@@ -128,7 +130,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table id="myTable" class="table">
+                                    <table class="table" id="mainDataTable">
                                         <thead class=" text-primary">
                                             {% for i in titles %}
                                             <th> {{i}} </th>
@@ -160,7 +162,7 @@
                         <div class="card card-chart">
                             <div class="card-header">
                                 <h5 class="card-category">Covid-19</h5>
-                                <h4 class="card-title">Günlük Vaka Sayısı</h4>
+                                <h4 class="card-title">Günlük Hasta Sayısı</h4>
 
                             </div>
                             <div class="card-body">
@@ -504,7 +506,6 @@
 <script src="{{ url_for('static', filename='js/core/bootstrap.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>
 <!--  Google Maps Plugin    -->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 <!-- Chart JS -->
 <script src="{{ url_for('static', filename='js/plugins/chartjs.min.js') }}"></script>
 <!--  Notifications Plugin    -->
@@ -757,15 +758,15 @@
         //1196, 2069, 1704, 1815, 1610, 2704, 2148, 2456, 2786, 3013, 3135,
         //3148, 3892, 4117, 4056, 4747, 5138, 4789, 4093, 4062, 4281],
         borderColor: chartColor,
-            pointBorderColor: chartColor,
-                label: "Günlük Vaka Sayısı",
-                    borderColor: "#3e95cd",
-                        fill: false
+        pointBorderColor: chartColor,
+        label: "Günlük Hasta Sayısı",
+        borderColor: "#3e95cd",
+        fill: false
       }, {
         data: [{% for item in tvs %}
-    "{{item}}",
-        {% endfor %}],
-    label: "Toplam Vaka Sayısı",
+             "{{item}}",
+            {% endfor %}],
+        label: "Toplam Hasta Sayısı",
         borderColor: "#8e5ea2",
             fill: false
       }, {
@@ -903,7 +904,7 @@
        "{{item}}",
       {% endfor %}],
         datasets: [{
-            label: "Günlük Vaka Sayısı",
+            label: "Günlük Hasta Sayısı",
             borderColor: "#FF7F50",
             pointBorderColor: "#FFF",
             pointBackgroundColor: "#FF7F50",
@@ -1261,6 +1262,19 @@
 
 };
 
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+<script src="https://cdn.datatables.net/plug-ins/1.10.24/sorting/datetime-moment.js"></script>
+<script>
+    $.fn.dataTable.moment('DD.MM.YYYY');
+    $(document).ready(function() {
+        $('#mainDataTable').DataTable( {
+            "pagingType": "full_numbers",
+            "order": [[0, "asc"]]
+        } );
+    } );
 </script>
 
 </html>
