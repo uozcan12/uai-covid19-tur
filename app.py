@@ -79,7 +79,7 @@ async def hello():
     # data/COVID_API.csv
     # https://raw.githubusercontent.com/ozanerturk/covid19-turkey-api/master/dataset/timeline.csv
     df=pd.read_csv('https://raw.githubusercontent.com/ozanerturk/covid19-turkey-api/master/dataset/timeline.csv', index_col=False)
-    titles=['Tarih', 'Günlük Vaka Sayısı', 'Toplam Vaka Sayısı', 'Günlük İyileşen Sayısı', 'Toplam İyileşen Sayısı', 
+    titles=['Tarih', 'Günlük Hasta Sayısı', 'Toplam Hasta Sayısı', 'Günlük İyileşen Sayısı', 'Toplam İyileşen Sayısı', 
             'Günlük Vefat Sayısı', 'Toplam Vefat Sayısı', 'Günlük Test Sayısı', 'Toplam Test Sayısı']
 
     dates=df[df.columns[10]].tolist()
