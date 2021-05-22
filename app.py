@@ -84,6 +84,8 @@ async def hello():
 
     dates=df[df.columns[10]].tolist()
     dates=[x.replace("/",".") for x in dates]
+
+    gunluk_vaka_sayisi = df[df.columns[-1]].tolist()
     
     gvs=df[df.columns[0]].tolist()
     tvs=df[df.columns[1]].tolist()
@@ -205,6 +207,7 @@ async def hello():
 
     return render_template('dashboard.html',
         dates=dates,
+        gunluk_vaka_sayisi=gunluk_vaka_sayisi,
         gvs=gvs,
         tvs=tvs,
         gis=gis,
