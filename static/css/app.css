@@ -1,0 +1,92 @@
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.flag-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-flex;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  padding: 0;
+  background: #fff;
+}
+
+.flag-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  flex-shrink: 0;
+}
+
+.flag-btn.active {
+  border-color: #fff;
+}
+
+.date-nav {
+  padding: 8px 14px 4px;
+}
+
+.date-nav form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.date-nav .now-ui-icons {
+  color: #fff;
+}
+
+.date-nav input[type="date"] {
+  background: transparent;
+  color: #fff;
+  border: 0;
+  font-weight: 700;
+  font-size: 12px;
+  max-width: 148px;
+  cursor: pointer;
+}
+
+.date-nav input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+
+.page-loader {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 15, 15, 0.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 2000;
+  color: #fff;
+  font-weight: 600;
+}
+
+.page-loader.is-visible {
+  display: flex;
+}
+
+.loader-circle {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(255, 255, 255, 0.25);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

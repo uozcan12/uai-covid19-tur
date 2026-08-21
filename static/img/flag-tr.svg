@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+  <rect width="100" height="100" fill="#E30A17"/>
+  <defs>
+    <mask id="crescent">
+      <rect width="100" height="100" fill="#000"/>
+      <circle cx="38" cy="50" r="24" fill="#fff"/>
+      <circle cx="48" cy="50" r="19" fill="#000"/>
+    </mask>
+  </defs>
+  <rect width="100" height="100" fill="#fff" mask="url(#crescent)"/>
+  <polygon fill="#fff" points="70.00,37.50 72.81,46.14 81.89,46.14 74.54,51.48 77.35,60.11 70.00,54.77 62.65,60.11 65.46,51.48 58.11,46.14 67.19,46.14"/>
+</svg>
